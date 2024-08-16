@@ -1,0 +1,5 @@
+# Created at 2024-08-16T02:11:59.438
+Boot Manifest-JAR contains absolute paths in classpath 'E:\Projekty\job-scrapper\job-scrapper\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
