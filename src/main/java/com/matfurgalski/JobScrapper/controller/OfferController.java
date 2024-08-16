@@ -8,15 +8,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.data.web.PagedModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/offers")
+@CrossOrigin(origins = "http://localhost:3000")
 public class OfferController {
 
     private final OfferService offerService;
@@ -35,5 +33,10 @@ public class OfferController {
             @RequestParam(required = false) List<String> workModes,
             Pageable page) {
         return new PagedModel<>(allOfferService.findAllOffers(displayWorkplace, technologies, positionLevels, workModes, page));
+    }
+
+    @GetMapping("/city")
+   public List<String>polandCity(){
+        return offerService.polandCity();
     }
 }

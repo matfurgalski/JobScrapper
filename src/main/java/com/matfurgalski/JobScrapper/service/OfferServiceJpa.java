@@ -3,13 +3,11 @@ package com.matfurgalski.JobScrapper.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.matfurgalski.JobScrapper.dto.AllOfferDto;
 import com.matfurgalski.JobScrapper.mapper.AllOfferMapper;
 import com.matfurgalski.JobScrapper.model.JoinItOffer;
 import com.matfurgalski.JobScrapper.model.AllOffer;
 import com.matfurgalski.JobScrapper.model.PracujOffer;
 import com.matfurgalski.JobScrapper.repository.*;
-import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -19,19 +17,27 @@ import java.util.stream.Collectors;
 public class OfferServiceJpa implements OfferService {
 
     private final JoinItOfferRepository joinItOfferRepository;
+    private final JobOfferRepository jobOfferRepository;
     private final PracujOfferRepository pracujOfferRepository;
     private final OfferFromPracujRepository offerFromPracujRepository;
     private final AllOfferRepository allOfferRepository;
     private final ObjectMapper mapper;
 
-    public OfferServiceJpa(JoinItOfferRepository joinItOfferRepository, PracujOfferRepository pracujOfferRepository, OfferFromPracujRepository offerFromPracujRepository, AllOfferRepository allOfferRepository,  ObjectMapper mapper) {
+    public OfferServiceJpa(JoinItOfferRepository joinItOfferRepository, JobOfferRepository jobOfferRepository, PracujOfferRepository pracujOfferRepository, OfferFromPracujRepository offerFromPracujRepository, AllOfferRepository allOfferRepository, ObjectMapper mapper) {
         this.joinItOfferRepository = joinItOfferRepository;
+        this.jobOfferRepository = jobOfferRepository;
         this.pracujOfferRepository = pracujOfferRepository;
         this.offerFromPracujRepository = offerFromPracujRepository;
         this.allOfferRepository = allOfferRepository;
         this.mapper = mapper;
     }
 
+    @Override
+    public List<String> polandCity(){
+        List<AllOffer.JobOffer> jobList = jobOfferRepository.findAll();
+        List<String> cityList = jobList.stream().map(job -> job.getDisplayWorkplace()).collect(Collectors.toList());
+        return new HashSet<>(cityList).stream().toList();
+    }
     @Override
     public List<JoinItOffer> findAllJoinItOffers(){
         return joinItOfferRepository.findAll();

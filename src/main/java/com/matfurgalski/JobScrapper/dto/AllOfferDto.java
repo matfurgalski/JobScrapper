@@ -13,6 +13,7 @@ public class AllOfferDto {
     private List<String> technologies;
     private String jobTitle;
     private String companyProfileAbsoluteUri;
+    private String companyLogoUri;
     private String lastPublicated;
     private String expirationDate;
     private String salaryDisplayText;

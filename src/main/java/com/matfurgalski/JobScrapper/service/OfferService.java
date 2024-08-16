@@ -16,5 +16,6 @@ public interface OfferService {
     Iterable<AllOffer> mergeOffers();
     List<JoinItOffer> findAllJoinItOffers();
     List<PracujOffer>findAllPracujOffers();
+    List<String> polandCity();
 
 }

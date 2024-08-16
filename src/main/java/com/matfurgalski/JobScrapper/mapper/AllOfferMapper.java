@@ -15,6 +15,7 @@ public class AllOfferMapper {
                 .builder()
                 .status(pracujOffer.getStatus())
                 .site("pracuj.pl")
+                .companyLogoUri(pracujOffer.getCompanyLogoUri())
                 .technologies(new ArrayList<>(pracujOffer.getTechnologies()))
                 .jobTitle(pracujOffer.getJobTitle())
                 .companyProfileAbsoluteUri(pracujOffer.getCompanyProfileAbsoluteUri())
@@ -48,6 +49,7 @@ public class AllOfferMapper {
                 .builder()
                 .status(joinItOffer.getStatus())
                 .site("justjoin.it")
+                .companyLogoUri(joinItOffer.getCompanyLogoThumbUrl())
                 .technologies(new ArrayList<>(joinItOffer.getRequiredSkills()))
                 .jobTitle(joinItOffer.getTitle())
                 .lastPublicated(joinItOffer.getPublishedAt())
@@ -84,6 +86,7 @@ public class AllOfferMapper {
     public static AllOfferDto toDto(AllOffer allOffer) {
         return AllOfferDto.builder()
                 .site(allOffer.getSite())
+                .companyLogoUri(allOffer.getCompanyLogoUri())
                 .technologies(new ArrayList<>(allOffer.getTechnologies()))
                 .jobTitle(allOffer.getJobTitle())
                 .companyProfileAbsoluteUri(allOffer.getCompanyProfileAbsoluteUri())
