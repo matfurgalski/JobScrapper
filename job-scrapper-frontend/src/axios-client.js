@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: `http://spring-app:8080/api/v1/`
+  baseURL: `http://host.docker.internal:8080/api/v1/`
 })
 
 
