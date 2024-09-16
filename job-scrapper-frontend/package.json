@@ -1,6 +1,7 @@
 {
   "name": "job-scrapper-frontend",
   "version": "0.1.0",
+  "proxy": "http://192.168.1.10:8080",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.1.2",
