@@ -26,7 +26,7 @@ public class JoinItOffer {
     private long id;
     private int categoryId;
     private String city;
-    @Column(length = 1000)
+    @Column(length = 5000)
     private String companyLogoThumbUrl;
     private String companyName;
     private String experienceLevel;

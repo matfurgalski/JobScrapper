@@ -34,7 +34,7 @@ public class AllOffer {
     private List<String> technologies = new ArrayList<>();
     private String jobTitle;
     private String companyProfileAbsoluteUri;
-    @Column(length = 1000)
+    @Column(length = 5000)
     private String companyLogoUri;
     private String lastPublicated;
     private String expirationDate;
