@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const baseURL = process.env.REACT_APP_BACKEND_URL || '/api/v1/'
+
 const axiosClient = axios.create({
-  baseURL: `http://192.168.1.10:8080/api/v1/`,
+  baseURL
 })
 
 

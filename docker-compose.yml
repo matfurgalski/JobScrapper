@@ -28,8 +28,7 @@ services:
       - spring.datasource.username=root
       - spring.datasource.password=root
       - spring.jpa.show-sql=true
-      - server.port=8080
-      - server.address=0.0.0.0
+
     ports:
       - "8080:8080"
     networks:
@@ -40,8 +39,10 @@ services:
       context: ./job-scrapper-frontend   # Path to your backend project
       dockerfile: Dockerfile
     container_name: react-app
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080
     ports:
-      - "3000:80"
+      - "3000:3000"
     depends_on:
       - spring-app
     networks:
